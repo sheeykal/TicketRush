@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-@Component
 public class TicketPool {
     private final int ticketPoolCapacity;
     private final BlockingQueue<Ticket> ticketPool;

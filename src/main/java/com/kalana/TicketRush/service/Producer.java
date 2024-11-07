@@ -5,7 +5,6 @@ import com.kalana.TicketRush.repository.TicketRepo;
 import com.kalana.TicketRush.util.LoggerUtil;
 import lombok.AllArgsConstructor;
 
-
 @AllArgsConstructor
 public class Producer implements Runnable{
     private final TicketPool ticketPool;
@@ -13,7 +12,6 @@ public class Producer implements Runnable{
     private final TicketRepo ticketRepo;
     private final int producerId;
     private final int ticketReleaseRate;
-
 
 
     @Override
