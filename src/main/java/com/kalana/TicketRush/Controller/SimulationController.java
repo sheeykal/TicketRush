@@ -2,13 +2,10 @@ package com.kalana.TicketRush.Controller;
 
 import com.kalana.TicketRush.Config.SystemConfig;
 import com.kalana.TicketRush.service.SimulationService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/ticket-rush")
 public class SimulationController {
 
     private final SimulationService simulationService;
@@ -17,12 +14,29 @@ public class SimulationController {
         this.simulationService = simulationService;
     }
 
-
-    @PostMapping("/start-simulation")
-    public void getConfig(@RequestBody SystemConfig config)
+    @GetMapping
+    public String home()
     {
-        SimulationService.getConfig(config);
+        return "Hello!";
     }
 
+    @GetMapping("/getConfig")
+    public SystemConfig getConfig()
+    {
+        return new SystemConfig(500,2,3,100);
+    }
 
+    @PostMapping("/start-simulation")
+    public String startSimulation(@RequestBody SystemConfig config)
+    {
+        simulationService.startSimulation(config);
+        return "Simulation started";
+    }
+
+    @PostMapping("/stop-simulation")
+    public String stopSimulation()
+    {
+        simulationService.stopSimulation();
+        return "Simulation stopped";
+    }
 }

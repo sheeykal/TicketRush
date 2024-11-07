@@ -13,4 +13,8 @@ public class SimulationService {
         System.out.println("Simulation started");
         System.out.println(config.toString());
     }
+
+    public void stopSimulation() {
+    }
 }
+
