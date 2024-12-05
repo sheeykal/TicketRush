@@ -14,7 +14,7 @@ public class SimulationController {
         this.simulationService = simulationService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String home()
     {
         return "Hello!";

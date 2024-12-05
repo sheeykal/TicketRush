@@ -5,32 +5,44 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TicketPool {
     private final int ticketPoolCapacity;
     private final BlockingQueue<Ticket> ticketPool;
+    private final AtomicInteger producedTicketCount = new AtomicInteger(0);
+    private final AtomicInteger consumedTicketCount = new AtomicInteger(0);
+
 
     public TicketPool(int ticketPoolCapacity) {
         this.ticketPoolCapacity = ticketPoolCapacity;
         this.ticketPool = new ArrayBlockingQueue<>(ticketPoolCapacity);
     }
 
-    public boolean produceTicket (Ticket ticket)
+    // Method to add ticket to ticket pool
+    public synchronized void produceTicket (Ticket ticket)
     {
-        return ticketPool.offer(ticket);
+        ticketPool.add(ticket);
+        producedTicketCount.incrementAndGet();
     }
 
-    public Ticket consumeTicket(){
+    // Method to remove ticket from the ticket pool
+    public synchronized Ticket consumeTicket()
+    {
+        consumedTicketCount.incrementAndGet();
         return ticketPool.poll();
     }
 
-    public int getCurrentTicketInthePool()
+    public synchronized int getCurrentTicketInthePool()
     {
         return ticketPool.size();
     }
 
-    public int getTicketPoolCapacity() {
-        return ticketPoolCapacity;
-    }
+    public synchronized int getTicketPoolCapacity() { return ticketPoolCapacity; }
+
+    public synchronized int getProducedTicketCount(){return consumedTicketCount.get();}
+
+    public synchronized int getConsumedTicketCount(){return consumedTicketCount.get();}
+
 }
 
