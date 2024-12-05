@@ -5,39 +5,46 @@ import com.kalana.TicketRush.repository.TicketRepo;
 import com.kalana.TicketRush.util.LoggerUtil;
 import lombok.AllArgsConstructor;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 @AllArgsConstructor
 public class Producer implements Runnable{
     private final TicketPool ticketPool;
     private final LoggerUtil logger;
     private final TicketRepo ticketRepo;
     private final int producerId;
+    private final AtomicBoolean stopFlag;
+    private final int totalTicket;
     private final int ticketReleaseRate;
 
 
     @Override
     public void run()
     {
-        try
-        {
-            while (true)
-            {
-                if(ticketPool.getCurrentTicketInthePool()< ticketPool.getTicketPoolCapacity())
-                {
+        while (!stopFlag.get() && ticketPool.getProducedTicketCount() < totalTicket) {
+            try {
+                if (ticketPool.getCurrentTicketInthePool() < ticketPool.getTicketPoolCapacity()) {
                     Ticket ticket = new Ticket();
                     ticketPool.produceTicket(ticket);
                     ticketRepo.save(ticket);
-                    logger.log("Producer " + producerId + "added ticket" + ticket.getId());
-                }else
-                {
-                    logger.log("Ticket pool is full; Producer" + producerId + "is waiting!");
+                    logger.log("Producer with ID: " + producerId + " has been produced a ticket with ID: " + ticket.getId());
+                } else {
+                    logger.log("Producer with ID: " + producerId + "is waiting because the Pool is full");
                 }
-                Thread.sleep(ticketReleaseRate + 1000L);
+                Thread.sleep(ticketReleaseRate * 1000L);
+            } catch (InterruptedException e) {
+                logger.log("Producer with ID: " + producerId + " is stopping due to interruption");
+                Thread.currentThread().interrupt();
+                break;
             }
-        } catch (InterruptedException e)
-        {
-            Thread.currentThread().interrupt();
-            System.out.println("Producer thread is interrupted:" + e.getMessage());
-        }
 
+            if (stopFlag.get())
+            {
+                logger.log("Producer with ID: " + producerId + " has been stopped");
+            } else if (ticketPool.getProducedTicketCount() >= totalTicket)
+            {
+                logger.log("Producer with ID: " + producerId + " has been produced all the tickets");
+            }
+        }
     }
 }
