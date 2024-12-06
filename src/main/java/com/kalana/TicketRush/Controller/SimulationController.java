@@ -29,14 +29,12 @@ public class SimulationController {
     @PostMapping("/start-simulation")
     public String startSimulation(@RequestBody SystemConfig config)
     {
-        simulationService.startSimulation(config);
-        return "Simulation started";
+        return simulationService.startSimulation(config);
     }
 
     @PostMapping("/stop-simulation")
     public String stopSimulation()
     {
-        simulationService.stopSimulation();
-        return "Simulation stopped";
+        return simulationService.stopSimulation();
     }
 }
