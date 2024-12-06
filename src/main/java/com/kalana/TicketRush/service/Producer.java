@@ -15,7 +15,6 @@ public class Producer implements Runnable{
     private final int producerId;
     private final AtomicBoolean stopFlag;
     private final int totalTicket;
-    private final int ticketReleaseRate;
 
 
     @Override
