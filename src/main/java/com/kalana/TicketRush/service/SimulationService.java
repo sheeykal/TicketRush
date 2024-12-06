@@ -25,7 +25,7 @@ public class SimulationService {
     public void startSimulation(SystemConfig config)
     {
         this.ticketPool = new TicketPool(config.getTicketPoolCapacity());
-        producerThread = new Thread(new Producer(ticketPool,logger,ticketRepo,101,config.getTicketReleaseRate()));
+        producerThread = new Thread(new Producer(ticketPool,logger,ticketRepo,101,config.getTicketRetrievalRate()));
         consumerThread = new Thread(new Consumer(ticketPool,logger,101,config.getComsumerRetrevalRate()));
 
         producerThread.start();
