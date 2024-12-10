@@ -21,7 +21,7 @@
                   Target Tickets: {{config.totalTicket}}<br />
                   Ticket Release Rate: {{config.ticketReleaseRate}}<br />
                   Ticket Retrieval Rate: {{config.consumerRetrievalRate}}<br />
-                  Ticket Pool Capacity: {{config.tickrtPoolCapacity}}
+                  Ticket Pool Capacity: {{config.ticketPoolCapacity}}
                   
                 </div>
                 <h2 class="stats-label">Current statistics</h2>
@@ -41,7 +41,9 @@
           <h2 class="section-label">Real-time Logs</h2>
           <div class="logs-container">
             <div class="logs-wrapper">
-              <textarea class="logs-textarea" aria-label="Real-time logs output" readonly></textarea>
+              <div class="logs-textarea"> @for(log of logs; track log){
+                <p>{{ log }}</p>
+              } </div>
             </div>
           </div>
           <button class="stop-button" (click)="stopSimulation()" aria-label="Stop simulation">

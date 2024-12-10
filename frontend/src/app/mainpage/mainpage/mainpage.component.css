@@ -185,16 +185,27 @@
   width: 100%;
   max-width: 744px;
   flex-direction: column;
+  overflow-y: auto;
+
 }
 
 .logs-textarea {
   border-radius: 14px;
   border: 1.5px solid var(--Gray, #2a2a2a);
   background-color: #fff;
-  min-height: 628px;
-  width: 100%;
-  padding: 12px 20px 200px;
+  height: 628px; /* Fixed height */
+  width: 100%; /* Full width */
+  padding: 12px 20px; /* Padding for inner spacing */
+  overflow-y: auto; /* Allow vertical scroll */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  white-space: normal; /* Wrap text */
+  word-wrap: break-word; /* Break long words */
+  display: block; /* Ensure it's treated as a block container */
+  box-sizing: border-box; /* Includes padding in width/height */
 }
+
+
+
 
 .stop-button {
   border-radius: 86px;

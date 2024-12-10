@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <form class="form-section">
+    <form class="form-section" (ngSubmit)="startSimulation()">
       <h2 class="form-title">Fill in to continue.</h2>
       
       <div class="input-group">
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <button type="submit" class="start-button" (click)="startSimulation()">Start</button>
+      <button type="submit" class="start-button">Start</button>
       <button type="reset" class="reset-button">Reset</button>
     </form>
   </div>
