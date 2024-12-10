@@ -18,10 +18,11 @@
                 </div>
                 <h2 class="config-label">User configurations</h2>
                 <div class="config-values">
-                  Number of Producers:<br />
-                  Number of Consumers:<br />
-                  Ticket Pool Size:<br />
-                  Target Tickets:
+                  Target Tickets: {{config.totalTicket}}<br />
+                  Ticket Release Rate: {{config.ticketReleaseRate}}<br />
+                  Ticket Retrieval Rate: {{config.consumerRetrievalRate}}<br />
+                  Ticket Pool Capacity: {{config.tickrtPoolCapacity}}
+                  
                 </div>
                 <h2 class="stats-label">Current statistics</h2>
                 <div class="stats-values">
@@ -43,7 +44,7 @@
               <textarea class="logs-textarea" aria-label="Real-time logs output" readonly></textarea>
             </div>
           </div>
-          <button class="stop-button" aria-label="Stop simulation">
+          <button class="stop-button" (click)="stopSimulation()" aria-label="Stop simulation">
             <span class="stop-button-inner">Stop Simulation</span>
           </button>
         </div>
