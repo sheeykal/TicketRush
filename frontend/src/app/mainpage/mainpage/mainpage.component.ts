@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemConfig } from '../../models/system-config/system-config.module';
 import { DataSharingService } from '../../services/data-sharing.service';
+import { SimulationService } from '../../services/simulation.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -44,6 +45,6 @@ export class MainpageComponent {
     alert('Simulation stopped');
     this.router.navigate(['/']);
     this.simulationService.stopSimulation().subscribe(() => {
-      /* alert('Simulation stopped'); */
-      /* this.router.navigate(['/']); */
     });
+  }
+}

@@ -1,58 +1,58 @@
-  <div class="ticket-rush-header">
-    <div class="brand-name">TICKETRUSH</div>
-    <div class="main-content">
-      <div class="hero-section">
-        <img class="hero-image" loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8400a10a11047ed6a5c3c435d980c795bfe24f8fa4d404f6b552c40fc4efb963?placeholderIfAbsent=true&apiKey=90ef4955d8ca4909aacee05dfa458b74" alt="Ticket Rush background image" />
-        <div class="hero-content">
-          <h1 class="hero-title">Welcome to Ticket Rush!</h1>
-          <div class="hero-text-container">
-            <p class="hero-subtitle">Add in some text here lmao.</p>
-            <p class="hero-description">She wholly fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense six her are another passage. Full her ten open fond walk not down. For request general express unknown are.</p>
-          </div>
+<div class="ticket-rush-header">
+  <div class="brand-name">TICKETRUSH</div>
+  <div class="main-content">
+    <div class="hero-section">
+      <img class="hero-image" loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/8400a10a11047ed6a5c3c435d980c795bfe24f8fa4d404f6b552c40fc4efb963?placeholderIfAbsent=true&apiKey=90ef4955d8ca4909aacee05dfa458b74" alt="Ticket Rush background image" />
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to Ticket Rush!</h1>
+        <div class="hero-text-container">
+          <p class="hero-subtitle">Add in some text here lmao.</p>
+          <p class="hero-description">She wholly fat who window extent either formal. Removing welcomed civility or hastened is. Justice elderly but perhaps expense six her are another passage. Full her ten open fond walk not down. For request general express unknown are.</p>
         </div>
       </div>
-  
-      <form class="form-section">
-        <h2 class="form-title">Fill in to continue.</h2>
-        
-        <div class="input-group">
-          <div class="input-wrapper">
-            <label class="input-label" for="totalTickets">Total tickets</label>
-            <input class="input-field" type="number" id="totalTickets" name="totalTickets" placeholder="Enter total tickets" required [(ngModel)]="config.totalTicket"
-            name="totalTicket"/>
-          </div>
-        </div>
-  
-        <div class="input-group">
-          <div class="input-wrapper">
-            <label class="input-label" for="releaseRate">Total release rate</label>
-            <input class="input-field" type="number" id="releaseRate" name="releaseRate" placeholder="Enter total tickets" [(ngModel)]="config.ticketReleaseRate"
-            required
-            name="ticketReleaseRate"/>
-          </div>
-        </div>
-  
-        <div class="input-group">
-          <div class="input-wrapper">
-            <label class="input-label" for="retrievalRate">Ticket retrieval rate</label>
-            <input class="input-field" type="number" id="retrievalRate" name="retrievalRate" placeholder="Enter total tickets" [(ngModel)]="config.consumerRetrievalRate"
-            required
-            name="consumerRetrievalRate"/>
-          </div>
-        </div>
-  
-        <div class="input-group">
-          <div class="input-wrapper">
-            <label class="input-label" for="ticketPool">Ticket pool</label>
-            <input class="input-field" type="number" id="ticketPool" name="ticketPool" placeholder="Enter total tickets" [(ngModel)]="config.ticketPoolCapacity"
-            required
-            name="ticketPoolCapacity"/>
-          </div>
-        </div>
-  
-        <button type="submit" class="start-button">Start</button>
-        <button type="reset" class="reset-button">Reset</button>
-      </form>
     </div>
-    <footer class="footer-text">Designed & Developed by Kalana Shehara / W2052271</footer>
+
+    <form class="form-section">
+      <h2 class="form-title">Fill in to continue.</h2>
+      
+      <div class="input-group">
+        <div class="input-wrapper">
+          <label class="input-label" for="totalTickets">Total tickets</label>
+          <input class="input-field" type="number" id="totalTickets" name="totalTickets" placeholder="Enter total tickets" required [(ngModel)]="config.totalTicket"
+          name="totalTicket"/>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-wrapper">
+          <label class="input-label" for="releaseRate">Total release rate</label>
+          <input class="input-field" type="number" id="releaseRate" name="releaseRate" placeholder="Enter total tickets" [(ngModel)]="config.ticketReleaseRate"
+          required
+          name="ticketReleaseRate"/>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-wrapper">
+          <label class="input-label" for="retrievalRate">Ticket retrieval rate</label>
+          <input class="input-field" type="number" id="retrievalRate" name="retrievalRate" placeholder="Enter total tickets" [(ngModel)]="config.consumerRetrievalRate"
+          required
+          name="consumerRetrievalRate"/>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-wrapper">
+          <label class="input-label" for="ticketPool">Ticket pool</label>
+          <input class="input-field" type="number" id="ticketPool" name="ticketPool" placeholder="Enter total tickets" [(ngModel)]="config.ticketPoolCapacity"
+          required
+          name="ticketPoolCapacity"/>
+        </div>
+      </div>
+
+      <button type="submit" class="start-button" (click)="startSimulation()">Start</button>
+      <button type="reset" class="reset-button">Reset</button>
+    </form>
   </div>
+  <footer class="footer-text">Designed & Developed by Kalana Shehara / W2052271</footer>
+</div>

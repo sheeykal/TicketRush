@@ -1,133 +1,302 @@
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.dashboard-container {
+  background-color: rgba(232, 242, 244, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-title {
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 10;
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+  padding: 9px 70px;
+  font: 700 40px/1.6 Chivo, sans-serif;
+}
+
+.main-content {
+  margin-top: -81px;
+  width: 100%;
+  max-width: 1834px;
+}
+
+.content-wrapper {
+  gap: 20px;
+  display: flex;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 54%;
+}
+
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 1080px;
+  flex-grow: 1;
+  align-items: center;
+  font-family: Chivo, sans-serif;
+  padding: 188px 80px 115px;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dashboard-info {
+  position: relative;
+  display: flex;
+  width: 664px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: start;
+}
+
+.page-title {
+  color: rgba(30, 30, 30, 1);
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 0.8;
+}
+
+.page-description {
+  color: rgba(30, 30, 30, 1);
+  letter-spacing: -0.75px;
+  align-self: stretch;
+  margin-top: 20px;
+  font: 500 25px/1 Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.simulation-controls {
+  display: flex;
+  margin-top: 60px;
+  width: 550px;
+  max-width: 100%;
+  gap: 40px 74px;
+  flex-wrap: wrap;
+}
+
+.control-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-grow: 1;
+  flex-basis: 0;
+  width: fit-content;
+}
+
+.input-group {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.section-label {
+  color: var(--Gray, #2a2a2a);
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.time-input {
+  border-radius: 14px;
+  border: 1.5px solid var(--Gray, #2a2a2a);
+  background-color: #fff;
+  margin-top: 7px;
+  width: 100%;
+  font-size: 20px;
+  color: var(--Gray-Light, #9f9f9f);
+  padding: 12px 20px;
+}
+
+.config-label {
+  color: var(--Gray, #2a2a2a);
+  font-size: 40px;
+  font-weight: 800;
+  margin-top: 56px;
+}
+
+.config-values {
+  color: var(--Gray, #2a2a2a);
+  font-size: 30px;
+  font-weight: 400;
+  padding-top: 11px;
+}
+
+.stats-label {
+  color: var(--Gray, #2a2a2a);
+  font-size: 40px;
+  font-weight: 800;
+  margin-top: 44px;
+}
+
+.stats-values {
+  color: var(--Gray, #2a2a2a);
+  font-size: 30px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 46%;
+  margin-left: 20px;
+}
+
+.logs-section {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: start;
+  padding-top: 97px;
+  margin: auto 0;
+  font: 20px Chivo, sans-serif;
+}
+
+.logs-container {
+  align-self: stretch;
+  display: flex;
+  margin-top: 19px;
+  flex-direction: column;
+  color: var(--Gray-Light, #9f9f9f);
+  font-weight: 400;
+}
+
+.logs-wrapper {
+  display: flex;
+  min-height: 628px;
+  width: 100%;
+  max-width: 744px;
+  flex-direction: column;
+}
+
+.logs-textarea {
+  border-radius: 14px;
+  border: 1.5px solid var(--Gray, #2a2a2a);
+  background-color: #fff;
+  min-height: 628px;
+  width: 100%;
+  padding: 12px 20px 200px;
+}
+
+.stop-button {
+  border-radius: 86px;
+  display: flex;
+  margin-top: 31px;
+  align-items: start;
+  color: var(--White, #fff);
+  font-weight: 700;
+  text-align: center;
+}
+
+.stop-button-inner {
+  border-radius: 73px;
+  background-color: rgba(0, 0, 0, 1);
+  width: 100%;
+  padding: 19px 25px;
+}
+
+@media (max-width: 991px) {
+  .header-title {
+    max-width: 100%;
+    padding: 0 20px;
   }
   
-  /* Header */
-  header {
-    text-align: center;
-    margin-bottom: 20px;
+  .main-content {
+    max-width: 100%;
   }
   
-  header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #4CAF50;
+  .content-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
   }
   
-  header p {
-    margin: 5px 0 0;
-    color: #555;
+  .left-column {
+    width: 100%;
   }
   
-  /* Simulation Start Time */
-  .start-time {
-    margin-bottom: 20px;
+  .dashboard-section {
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 100px 20px;
   }
   
-  .start-time h2 {
-    font-size: 18px;
-    margin-bottom: 5px;
+  .page-title {
+    font-size: 40px;
   }
   
-  .start-time p {
-    font-size: 16px;
-    color: #333;
-    background: #f9f9f9;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+  .page-description {
+    max-width: 100%;
   }
   
-  /* Configurations Section */
-  .configurations {
-    margin-bottom: 20px;
+  .simulation-controls {
+    margin-top: 40px;
   }
   
-  .configurations h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  .control-section {
+    max-width: 100%;
   }
   
-  .config-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
+  .config-label {
+    margin-top: 40px;
   }
   
-  .config-item span {
-    font-size: 16px;
+  .stats-label {
+    margin-top: 40px;
   }
   
-  /* Statistics Section */
-  .stats {
-    margin-bottom: 20px;
+  .right-column {
+    width: 100%;
   }
   
-  .stats h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  .logs-section {
+    max-width: 100%;
+    margin-top: 40px;
   }
   
-  .stat-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
+  .logs-container {
+    max-width: 100%;
   }
   
-  .stat-item span {
-    font-size: 16px;
+  .logs-wrapper {
+    max-width: 100%;
   }
   
-  /* Logs Section */
-  .logs {
-    margin-bottom: 20px;
+  .logs-textarea {
+    max-width: 100%;
+    padding-bottom: 100px;
   }
   
-  .logs h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  .stop-button-inner {
+    padding: 0 20px;
   }
-  
-  #logContainer {
-    height: 300px;
-    overflow-y: auto;
-    background: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  
-  /* Control Panel */
-  .controls h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    background-color: #FF5733;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #E64C2D;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

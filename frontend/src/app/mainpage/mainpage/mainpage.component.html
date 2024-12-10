@@ -1,67 +1,53 @@
-<div class="container">
-    <!-- Header -->
-    <header>
-      <h1>Ticket Simulation Dashboard</h1>
-      <p>Monitor the simulation in real-time and manage its progress.</p>
-    </header>
-  
-    <!-- Simulation Start Time -->
-    <section class="start-time">
-      <h2>Simulation Start Time</h2>
-      <p id="startTime">Not started yet</p>
-    </section>
-  
-    <!-- User Configurations -->
-    <section class="configurations">
-      <h2>User Configurations</h2>
-      <div class="config-item">
-        <span>Number of Producers:</span>
-        <span id="numProducers">-</span>
+<div class="dashboard-container">
+  <div class="header-title">TICKETRUSH</div>
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="left-column">
+        <div class="dashboard-section">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c5aaa84b0b0d7fd850df4f3598c636e45443a780c6bc38dddd41c5976abeadc?placeholderIfAbsent=true&apiKey=90ef4955d8ca4909aacee05dfa458b74" alt="" class="background-image" />
+          <div class="dashboard-info">
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-description">Monitor the simulation in real-time and manage its progress.</p>
+            <div class="simulation-controls">
+              <div class="control-section">
+                <div class="input-group">
+                  <div class="input-container">
+                    <label for="simTime" class="section-label">Simulation start time</label>
+                    <input type="text" id="simTime" class="time-input" aria-label="Simulation start time" />
+                  </div>
+                </div>
+                <h2 class="config-label">User configurations</h2>
+                <div class="config-values">
+                  Number of Producers:<br />
+                  Number of Consumers:<br />
+                  Ticket Pool Size:<br />
+                  Target Tickets:
+                </div>
+                <h2 class="stats-label">Current statistics</h2>
+                <div class="stats-values">
+                  Tickets in Pool:<br />
+                  Total Tickets Produced:<br />
+                  Total Tickets Consumed:<br />
+                  Remaining Tickets:
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="config-item">
-        <span>Number of Consumers:</span>
-        <span id="numConsumers">-</span>
+      <div class="right-column">
+        <div class="logs-section">
+          <h2 class="section-label">Real-time Logs</h2>
+          <div class="logs-container">
+            <div class="logs-wrapper">
+              <textarea class="logs-textarea" aria-label="Real-time logs output" readonly></textarea>
+            </div>
+          </div>
+          <button class="stop-button" aria-label="Stop simulation">
+            <span class="stop-button-inner">Stop Simulation</span>
+          </button>
+        </div>
       </div>
-      <div class="config-item">
-        <span>Ticket Pool Size:</span>
-        <span id="poolSize">-</span>
-      </div>
-      <div class="config-item">
-        <span>Target Tickets:</span>
-        <span id="targetTickets">-</span>
-      </div>
-    </section>
-  
-    <!-- Statistics Section -->
-    <section class="stats">
-      <h2>Current Statistics</h2>
-      <div class="stat-item">
-        <span>Tickets in Pool:</span>
-        <span id="currentPool">0</span>
-      </div>
-      <div class="stat-item">
-        <span>Total Tickets Produced:</span>
-        <span id="totalProduced">0</span>
-      </div>
-      <div class="stat-item">
-        <span>Total Tickets Consumed:</span>
-        <span id="totalConsumed">0</span>
-      </div>
-      <div class="stat-item">
-        <span>Remaining Tickets:</span>
-        <span id="remainingTickets">0</span>
-      </div>
-    </section>
-  
-    <!-- Real-Time Logs Section -->
-    <section class="logs">
-      <h2>Real-Time Logs</h2>
-      <div id="logContainer"></div>
-    </section>
-  
-    <!-- Control Panel -->
-    <section class="controls">
-      <h2>Control Panel</h2>
-      <button id="stopSimulation" (click)="onBtnClick()">Stop Simulation</button>
-    </section>
+    </div>
   </div>
+</div>
