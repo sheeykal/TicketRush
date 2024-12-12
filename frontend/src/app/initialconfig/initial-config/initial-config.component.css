@@ -1,11 +1,12 @@
 .ticket-rush-header {
-  background-color: rgba(232, 242, 244, 1);
+  background: linear-gradient(135deg, rgba(232, 242, 244, 1), rgba(200, 220, 230, 1));
   padding-bottom: 1px;
   display: flex;
   flex-direction: column;
   align-self: stretch;
   margin: 0 0;
 }
+
 .brand-name {
   text-align: center;
   background-color: rgba(0, 0, 0, 1);
@@ -14,8 +15,9 @@
   color: rgba(255, 255, 255, 1);
   white-space: nowrap;
   padding: 9px 70px 12px;
-  font: 700 40px/1.6 Chivo, sans-serif; 
+  font: 700 40px/1.6 'Poppins', sans-serif;
 }
+
 .main-content {
   display: flex;
   width: auto;
@@ -23,9 +25,12 @@
   gap: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-bottom: 37px;
-  margin: -81px 0 92px;
+  padding-bottom: 43px;
+  margin: -81px 0 78px;
+  padding-top: 0px;
+  padding-left: 0px;
 }
+
 .hero-section {
   display: flex;
   flex-direction: column;
@@ -35,6 +40,7 @@
   color: rgba(30, 30, 30, 1);
   padding: 200px 200px 59px 80px;
 }
+
 .hero-image {
   position: absolute;
   inset: 0;
@@ -42,7 +48,10 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
+  margin-top: 80px;
+  padding-top: 0px;
 }
+
 .hero-content {
   position: relative;
   display: flex;
@@ -50,105 +59,131 @@
   max-width: 100%;
   flex-direction: column;
   align-items: start;
+  margin-top: -1px;
 }
+
 .hero-title {
-  padding-top: 80px;
-  font: 700 80px/0.8 Chivo, sans-serif;
+  padding-top: 0px;
+  font: 700 80px/0.8 'Poppins', sans-serif;
 }
+
 .hero-text-container {
   align-self: stretch;
   display: flex;
   padding-left: 6px;
   flex-direction: column;
   font-size: 25px;
-  margin: 23px 0 90px;
+  margin: 25px 0 90px;
+  padding-top: 0px;
 }
+
 .hero-subtitle {
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   line-height: 1;
   letter-spacing: -0.75px;
   align-self: start;
   margin-top: -40px;
 }
+
 .hero-description {
-  font-family: Chivo, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   line-height: 31px;
   margin-top: 50px;
+  font-size: 20px;
 }
+
 .form-section {
   display: flex;
   flex-direction: column;
   padding-top: 60px;
   margin: auto 0;
-  font: 20px Chivo, sans-serif;
+  font: 400 20px 'Poppins', sans-serif;
 }
+
 .form-title {
   color: rgba(30, 30, 30, 1);
   font-size: 30px;
   font-weight: 700;
   line-height: 1.6;
   align-self: start;
+  padding-top: 0px;
+  margin-top: 67px;
 }
+
 .input-group {
   display: flex;
   margin-top: 10px;
   flex-direction: column;
   justify-content: start;
 }
+
 .input-wrapper {
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: start;
 }
+
 .input-label {
   color: var(--Gray, #2a2a2a);
-  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
+
 .input-field {
   border-radius: 14px;
   border: 1.5px solid var(--Gray, #2a2a2a);
   background-color: #fff;
   margin-top: 7px;
   width: 100%;
-  color: var(--Gray-Light, #9f9f9f);
+  color: var(--Gray-Light, #000000);
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   padding: 12px 20px;
 }
+
 .start-button {
+  font-size: 20px;
   border-radius: 73px;
   background-color: rgba(0, 0, 0, 1);
   min-width: 240px;
   width: 113%;
   color: #fff;
-  font-weight: 1200;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   padding: 19px 25px;
   margin-top: 70px;
   text-align: center;
   border: none;
   cursor: pointer;
 }
+
 .reset-button {
+  font-size: 20px;
   border-radius: 45px;
   min-width: 240px;
   width: 113%;
   padding: 14px 25px 19px;
   border: 2px solid rgba(0, 0, 0, 1);
   color: rgba(0, 0, 0, 1);
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   margin-top: 24px;
   text-align: center;
   background: transparent;
   cursor: pointer;
 }
+
 .footer-text {
   color: rgba(0, 0, 0, 1);
   letter-spacing: -0.6px;
   margin: -116px auto 60px;
-  font: 500 20px/1 Plus Jakarta Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 500 20px/1 'Poppins', sans-serif;
 }
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -159,6 +194,7 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
 @media (max-width: 991px) {
   .brand-name,
   .hero-title,
@@ -171,41 +207,51 @@
   .start-button,
   .reset-button,
   .footer-text {
-    max-width: 100%;
+      max-width: 100%;
   }
+
   .main-content {
-    max-width: 100%;
+      max-width: 100%;
   }
+
   .hero-section {
-    max-width: 100%;
-    padding: 100px 20px 0;
+      max-width: 100%;
+      padding: 100px 20px 0;
   }
+
   .hero-title {
-    font-size: 40px;
+      font-size: 40px;
   }
+
   .hero-description {
-    margin-top: 40px;
+      margin-top: 40px;
   }
+
   .form-section {
-    max-width: 100%;
+      max-width: 100%;
   }
+
   .start-button {
-    margin-top: 40px;
-    padding: 0 20px;
+      margin-top: 40px;
+      padding: 0 20px;
   }
+
   .reset-button {
-    padding: 0 20px;
+      padding: 0 20px;
   }
+
   .footer-text {
-    margin-top: 40px;
+      margin-top: 40px;
   }
 }
+
 @media (max-width: 640px) {
   .hero-section {
-    min-height: 522px;
-    padding-bottom: 38px;
+      min-height: 522px;
+      padding-bottom: 38px;
   }
+
   .form-section {
-    padding-left: 20px;
+      padding-left: 20px;
   }
 }

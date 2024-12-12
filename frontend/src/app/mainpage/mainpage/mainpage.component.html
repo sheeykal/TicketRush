@@ -4,7 +4,6 @@
     <div class="content-wrapper">
       <div class="left-column">
         <div class="dashboard-section">
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c5aaa84b0b0d7fd850df4f3598c636e45443a780c6bc38dddd41c5976abeadc?placeholderIfAbsent=true&apiKey=90ef4955d8ca4909aacee05dfa458b74" alt="" class="background-image" />
           <div class="dashboard-info">
             <h1 class="page-title">Dashboard</h1>
             <p class="page-description">Monitor the simulation in real-time and manage its progress.</p>
@@ -13,7 +12,8 @@
                 <div class="input-group">
                   <div class="input-container">
                     <label for="simTime" class="section-label">Simulation start time</label>
-                    <input type="text" id="simTime" class="time-input" aria-label="Simulation start time" />
+                    <p id="simTime" class="time-input"> {{ startTime | date: 'HH:mm:ss' }}
+                    </p>
                   </div>
                 </div>
                 <h2 class="config-label">User configurations</h2>
@@ -26,10 +26,10 @@
                 </div>
                 <h2 class="stats-label">Current statistics</h2>
                 <div class="stats-values">
-                  Tickets in Pool:<br />
-                  Total Tickets Produced:<br />
-                  Total Tickets Consumed:<br />
-                  Remaining Tickets:
+                  Tickets in Pool: {{currentTickets}} <br />
+                  Total Tickets Produced: {{ticketsProduced}} <br />
+                  Total Tickets Consumed:{{ticketsConsumed}} <br />
+                  Remaining Tickets: {{config.totalTicket - ticketsProduced}}
                 </div>
               </div>
             </div>
@@ -49,6 +49,7 @@
           <button class="stop-button" (click)="stopSimulation()" aria-label="Stop simulation">
             <span class="stop-button-inner">Stop Simulation</span>
           </button>
+          <a href="/showlogs">Show logs</a>
         </div>
       </div>
     </div>

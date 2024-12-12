@@ -1,0 +1,46 @@
+  <div class="container">
+    <a href="#" class="back-home">&larr; Back To Home</a>
+    <div class="dashboard-header">
+      <h1>Dashboard</h1>
+      <p>Monitor the simulation in real-time and manage its progress.</p>
+    </div>
+    <div class="simulation-section">
+      <div class="simulation-box">
+        <div class="buttons">
+        <button (click)="fetchSimulationIds()">Simulation IDs</button>
+        </div>
+        <div class="id-list">
+            @if(simulationIds.length > 0)
+            {
+            <ul>
+              <li
+                *ngFor="let id of simulationIds; let i = index"
+                (click)="fetchLogsForSimulation(id); currentIndex = i"
+                [class.selected]="id === selectedSimulationId"
+              >
+                Simulation ID: {{ id }} (Click)
+              </li>
+            </ul>
+            }
+          </div>
+      </div>
+      <div class="simulation-box">
+        <h2>Simulation Logs</h2>
+        <div class="log-area">
+            @if(simulationIds.length > 1)
+            {
+            <ul>
+              <li *ngFor="let log of logs">{{ log.message }}</li>
+            </ul>
+            }
+          </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+
+      <button (click)="showPreviousSimulation()">Previous Log</button>
+      <button (click)="showNextSimulation()">Next Log</button>
+    
+    </div>
+  </div>

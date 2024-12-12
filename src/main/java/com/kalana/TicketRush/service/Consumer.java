@@ -14,28 +14,34 @@ public class Consumer implements Runnable
     private final int consumerId;
     private final AtomicBoolean stopFlag;
     private final int totalTicket;
+    private final long simulationId;
+
 
     @Override
     public void run()
     {
         if (stopFlag.get())
         {
-            logger.log("Consumer with ID: " + consumerId + " stopping due to User stopped the simulation");
-        } else if (ticketPool.getProducedTicketCount() >= totalTicket) {
-            logger.log("Consumer with ID: " + consumerId + " stopping as all tickets are produced");
+            logger.log("Consumer with ID: " + consumerId + " stopping due to User Stopped the Simulation",simulationId);
+        } else if (ticketPool.getProducedTicketCount() >= totalTicket)
+        {
+            logger.log("Consumer with ID: " + consumerId + " stopping As All tickets are consumed.",simulationId);
         }
 
         if(Thread.currentThread().isInterrupted())
         {
-            logger.log("Consumer with ID: " + consumerId + " stopping due to Interruption");
+            logger.log("Consumer with ID: " + consumerId + " stopping due to Interrupted.",simulationId);
+            return; // if thread interrupted then leaving out of the run method
         }
-            Ticket ticket = ticketPool.consumeTicket();
-            if (ticket != null)
-            {
-                logger.log("Consumer with ID: " + consumerId + "Consumed Ticket: " + ticket.getId());
-            } else {
-                logger.log("Consumer with ID: " + consumerId + "Did't consumed tickrt since the pool is null");
-            }
+
+        Ticket ticket = ticketPool.consumeTicket();
+        if (ticket != null)
+        {
+            logger.log("Consumer with ID: "+ consumerId + " Consumed Ticket: " + ticket.getId(),simulationId);
+        } else
+        {
+            logger.log("Consumer with ID: "+ consumerId + " Ain't consumed Ticket cz Pool is Null",simulationId);
+        }
 
     }
 }

@@ -12,6 +12,7 @@ public class TicketPool {
     private final BlockingQueue<Ticket> ticketPool;
     private final AtomicInteger producedTicketCount = new AtomicInteger(0);
     private final AtomicInteger consumedTicketCount = new AtomicInteger(0);
+    private final AtomicInteger currentTicketsInThePool = new AtomicInteger(0);
 
 
     public TicketPool(int ticketPoolCapacity) {
@@ -24,25 +25,26 @@ public class TicketPool {
     {
         ticketPool.add(ticket);
         producedTicketCount.incrementAndGet();
+        currentTicketsInThePool.incrementAndGet();
     }
 
     // Method to remove ticket from the ticket pool
     public synchronized Ticket consumeTicket()
     {
         consumedTicketCount.incrementAndGet();
+        currentTicketsInThePool.decrementAndGet();
         return ticketPool.poll();
     }
 
-    public synchronized int getCurrentTicketInthePool()
-    {
-        return ticketPool.size();
-    }
+    public synchronized int getCurrentTicketsInThePool() {return currentTicketsInThePool.get();}
 
-    public synchronized int getTicketPoolCapacity() { return ticketPoolCapacity; }
+    public synchronized int getCurrentTicketInThePool() {return ticketPool.size();}
 
-    public synchronized int getProducedTicketCount(){return consumedTicketCount.get();}
+    public synchronized int getTicketPoolCapacity() {return ticketPoolCapacity;}
 
-    public synchronized int getConsumedTicketCount(){return consumedTicketCount.get();}
+    public synchronized int getProducedTicketCount() {return consumedTicketCount.get();}
+
+    public synchronized int getConsumedTicketCount() {return consumedTicketCount.get();}
 
 }
 

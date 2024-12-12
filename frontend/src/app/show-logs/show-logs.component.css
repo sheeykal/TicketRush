@@ -1,0 +1,97 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, rgba(232, 242, 244, 1), rgba(200, 220, 230, 1));
+    color: #000;
+}
+
+    header {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .dashboard-header h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .dashboard-header p {
+      font-size: 16px;
+      margin: 5px 0 0;
+    }
+
+    .back-home {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .simulation-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .simulation-box {
+      flex: 1;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .simulation-box h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .buttons button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 25px;
+      font-size: 14px;
+    }
+
+    .buttons button:hover {
+      background-color: #444;
+    }
+
+    .simulation-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .simulation-box li {
+      font-size: 14px;
+      line-height: 1.8;
+    }
